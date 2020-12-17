@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List City</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div>
+    <div>
+        <p th:text="${message}"></p>
+    </div>
+    <div class="row">
+        <div class="col-xl-8">
+            <h1>Dan Sách Thành Phố </h1>
+        </div>
+        <div class="col-xl-4">
+            <a class="btn btn-primary" th:href="@{/city-create}">Them thanh pho</a>
+        </div>
+    </div>
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Thanh Pho</th>
+                <th scope="col">Quoc Gia</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="city : ${cities}">
+                <th scope="row" th:text="${city.id}"></th>
+                <td><a th:href="@{city-info/{id}(id=${city.id})}" th:text="${city.name}"></a></td>
+                <td th:text="${city.country.name}"></td>
+                <td><a th:href="@{/edit/__${city.id}__}">Chinh Sua</a> <span> | </span><a href="@{/delete/__${city.id}__}">Xoa</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

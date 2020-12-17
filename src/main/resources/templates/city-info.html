@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>City Information</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="row">
+    <div class="col-xl-8">
+        <h2>Thanh Pho <span th:text="${city.name}"></span></h2>
+    </div>
+    <div class="col-xl-4">
+        <a class="btn btn-primary" th:href="@{/list}">Xem Danh Sach Thanh Pho</a>
+    </div>
+</div>
+<div>
+    <div>
+        <p>Ten <span th:text="${city.name}"></span></p>
+    </div>
+    <div>
+        <p>Quoc Gia <span th:text="${city.country.name}"></span></p>
+    </div>
+    <div>
+        <p>Dien tich <span th:text="${city.area}"></span></p>
+    </div>
+    <div>
+        <p>Dan So <span th:text="${city.population}"></span></p>
+    </div>
+    <div>
+        <p>GDP <span th:text="${city.GDP}"></span></p>
+    </div>
+    <div>
+        <p>Gioi thieu : </p>
+        <p th:text="${city.describes}"></p>
+    </div>
+</div>
+<div>
+    <div>  <a class="btn btn-primary" th:href="@{/edit/{id}(id=${city.id})}">Chinh Sua</a></div>
+    <div>  <a class="btn btn-primary" th:href="@{/delete/{id}(id=${city.id})}">Xoa</a></div>
+</div>
+
+</body>
+</html>

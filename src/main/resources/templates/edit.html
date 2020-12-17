@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div>
+    <h1>Chỉnh sửa thành phố <span th:text="${city.name}"></span></h1>
+</div>
+<div>
+    <form method="post" th:object="${city}">
+        <input type="hidden" th:field="*{id}">
+        <div>
+            <span>Ten</span>
+            <input type="text" th:field="*{name}">
+        </div>
+        <div>
+            <span>Quoc Gia</span>
+            <select name="country">
+                <option th:each="c : ${countries}"
+                        th:value="${c.id}"
+                        th:text="${c.name}"
+                        th:selected="(${c.id} == *{country.id})">
+                </option>
+            </select>
+        </div>
+        <div>
+            <span>Dien tich</span>
+            <input type="text" th:field="*{area}">
+        </div>
+        <div>
+            <span>Dan so</span>
+            <input type="text" th:field="*{population}">
+        </div>
+        <div>
+            <span>GDP</span>
+            <input type="text" th:field="*{GDP}">
+        </div>
+        <div>
+            <span>Gioi thieu</span>
+            <textarea type="text" th:field="*{describes}" row="3"></textarea>
+        </div>
+        <div>
+            <button type="submit">Cap nhat</button>
+            <a th:href="@{/list}">Thoat</a>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+<h1>Them thanh pho</h1>
+<form th:action="@{/city-create}" method="post" th:object="${city}">
+    <div>
+        <span>Ten</span>
+        <input type="text" th:field="*{name}">
+    </div>
+    <div>
+        <span>Quoc Gia</span>
+        <select th:field="*{country}">
+            <option th:each="p : ${countries}" th:value="${p.id}" th:text="${p.name}"></option>
+        </select>
+    </div>
+    <div>
+        <span>Dien tich</span>
+        <input type="text" th:field="*{area}">
+    </div>
+    <div>
+        <span>Dan so</span>
+        <input type="text" th:field="*{population}">
+    </div>
+    <div>
+        <span>GDP</span>
+        <input type="text" th:field="*{GDP}">
+    </div>
+    <div>
+        <span>Gioi thieu</span>
+        <textarea type="text" th:field="*{describes}" row="3"></textarea>
+    </div>
+    <div>
+        <button type="submit">Them thanh pho</button>
+        <a th:href="@{/list}">Thoat</a>
+    </div>
+</form>
+
+</body>
+</html>
